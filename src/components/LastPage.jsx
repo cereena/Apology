@@ -25,6 +25,8 @@ export default function LastPage({
   const reduceMotion = useReducedMotion();
 
   return (
+
+    
     <motion.main
       className="last-page"
       style={{ backgroundImage: `url("${backgroundImage}")` }}
@@ -32,9 +34,10 @@ export default function LastPage({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.1, ease: "easeOut" }}
     >
+        
       <div className="last-page-overlay" />
 
-       <span className="landing-chapter">CHAPTER 05 / 05</span>
+       
 
       <div className="last-page-fireflies" aria-hidden="true">
         {fireflies.map((fly, index) => (
@@ -110,9 +113,11 @@ export default function LastPage({
         </div>
       </motion.div>
 
+
       <div className="last-page-footer">
         Some words come late, but they can still be sincere.
       </div>
+
     </motion.main>
   );
 }

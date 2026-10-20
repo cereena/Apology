@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import Landing from "./components/Landing";
@@ -18,6 +17,15 @@ import coupleImage from "./assets/final.png";
 
 function App() {
   const [page, setPage] = useState(1);
+
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [page]);
 
   return (
     <AnimatePresence mode="wait">
