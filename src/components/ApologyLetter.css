@@ -1,0 +1,681 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap");
+
+.apology-page,
+.apology-page *,
+.apology-page *::before,
+.apology-page *::after {
+  box-sizing: border-box;
+}
+
+.apology-page {
+  --gold: #f8d879;
+  --cream: #fff8df;
+  --green: #203e2c;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+  --hand: "Caveat", cursive;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  color: var(--cream);
+  background: var(--green);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.apology-background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 37, 24, 0.78),
+      rgba(26, 52, 34, 0.62) 48%,
+      rgba(13, 34, 23, 0.88)
+    ),
+    url("../assets/main.jpg") center / cover no-repeat;
+}
+
+.apology-glow {
+  position: absolute;
+  z-index: -1;
+  top: 5%;
+  left: 50%;
+  width: min(750px, 100vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 218, 111, 0.17),
+    rgba(255, 217, 120, 0.04) 48%,
+    transparent 72%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.apology-stars {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.apology-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff2b0;
+  box-shadow:
+    0 0 8px 2px rgba(255, 225, 123, 0.55),
+    0 0 18px rgba(255, 208, 88, 0.3);
+}
+
+.apology-header,
+.apology-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  max-width: 1250px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 65px);
+}
+
+.apology-header {
+  padding-top: calc(24px + env(safe-area-inset-top));
+  padding-bottom: 16px;
+}
+
+.apology-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #ffe9b0;
+  font: 500 12px var(--sans);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.apology-back:hover {
+  color: white;
+}
+
+.apology-back:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+.apology-chapter,
+.apology-footer {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  color: #f9e6ae;
+}
+
+.apology-chapter {
+  white-space: nowrap;
+}
+
+.apology-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: 28px 24px 60px;
+}
+
+.letter-heading {
+  margin-bottom: 34px;
+  text-align: center;
+}
+
+.letter-eyebrow {
+  font: 600 10px var(--sans);
+  letter-spacing: 0.22em;
+  color: #fbe3a0;
+}
+
+.letter-heading h1 {
+  margin: 18px 0 12px;
+  font: 400 clamp(44px, 7vw, 76px)/0.98 var(--serif);
+  color: #fff9e8;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
+}
+
+.letter-heading h1 em {
+  color: #ffdc7d;
+  font-weight: 500;
+}
+
+.letter-heading-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 22px 0 12px;
+  color: var(--gold);
+}
+
+.letter-heading-divider span {
+  width: 52px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 220, 125, 0.9)
+  );
+}
+
+.letter-heading-divider span:last-child {
+  transform: rotate(180deg);
+}
+
+.letter-heading > p {
+  margin: 0;
+  font: 400 24px var(--hand);
+  color: #ffe4a2;
+}
+
+/* The parchment letter */
+
+.royal-letter {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(30px, 6vw, 65px);
+  border: 1px solid #d7b66d;
+  border-radius: 3px;
+  background:
+    radial-gradient(
+      ellipse at 10% 8%,
+      rgba(255, 255, 255, 0.58),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 90% 90%,
+      rgba(183, 133, 63, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #fff9e9, #f5e5c3 55%, #fff4d9);
+  color: #4b3827;
+  box-shadow:
+    0 25px 85px rgba(0, 0, 0, 0.35),
+    0 5px 18px rgba(0, 0, 0, 0.18),
+    inset 0 0 45px rgba(166, 119, 57, 0.08);
+}
+
+.letter-inner-border {
+  position: absolute;
+  inset: 12px;
+  z-index: -1;
+  border: 1px solid rgba(158, 116, 52, 0.34);
+  pointer-events: none;
+}
+
+.letter-top-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  color: #a67a35;
+}
+
+.letter-top-ornament > span:first-child,
+.letter-top-ornament > span:last-child {
+  font-size: 20px;
+}
+
+.ornament-line {
+  width: clamp(20px, 7vw, 60px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b9985c,
+    transparent
+  );
+}
+
+.letter-salutation {
+  margin-bottom: 25px;
+  font: italic 500 clamp(28px, 4vw, 37px)/1.2 var(--serif);
+  color: #77542c;
+}
+
+.letter-body {
+  font: 500 clamp(18px, 2.2vw, 21px)/1.85 var(--serif);
+  overflow-wrap: anywhere;
+}
+
+.letter-body p {
+  margin: 0 0 22px;
+}
+
+.letter-body p:first-child {
+  font-weight: 600;
+  color: #694923;
+}
+
+.letter-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Cute illustration inside the letter */
+
+.letter-sticker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 28px auto 34px;
+  padding: 15px 35px 18px;
+  border: 1px solid rgba(174, 136, 71, 0.3);
+  border-radius: 48% 48% 44% 44%;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.letter-sticker img {
+  display: block;
+  width: clamp(100px, 20vw, 150px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 5px rgba(65, 49, 29, 0.13));
+}
+
+.sticker-caption {
+  margin-top: 5px;
+  font: 400 23px/1.2 var(--hand);
+  text-align: center;
+  color: #896a3c;
+}
+
+.sticker-sparkle {
+  position: absolute;
+  color: #bb914b;
+  font-size: 25px;
+}
+
+.sticker-sparkle-left {
+  top: 20%;
+  left: 2px;
+}
+
+.sticker-sparkle-right {
+  right: 0;
+  bottom: 25%;
+}
+
+/* Personal photo */
+
+.letter-memory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 42px 0 38px;
+  padding: 27px 18px;
+  border-top: 1px solid rgba(158, 116, 52, 0.28);
+  border-bottom: 1px solid rgba(158, 116, 52, 0.28);
+}
+
+.memory-frame {
+  position: relative;
+  flex: 0 0 auto;
+  width: 332px;
+  height: 360px;
+  padding: 7px;
+  border: 2px solid #bb9859;
+  border-radius: 50% 50% 46% 46%;
+  background: #e8d4a9;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.45),
+    0 5px 14px rgba(84, 57, 24, 0.18);
+}
+
+.memory-frame::before {
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(174, 136, 71, 0.55);
+  border-radius: 50% 50% 46% 46%;
+  content: "";
+  pointer-events: none;
+}
+
+.memory-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 46% 46%;
+  object-fit: cover;
+}
+
+.memory-frame-heart {
+  position: absolute;
+  right: -8px;
+  bottom: 5px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid #f9e5b2;
+  border-radius: 50%;
+  background: #7c342f;
+  color: #ffe9b0;
+  font-size: 22px;
+}
+
+.memory-caption {
+  max-width: 230px;
+  font-family: var(--serif);
+  text-align: left;
+}
+
+.memory-caption > span {
+  font-size: 22px;
+  font-style: italic;
+  color: #79562d;
+}
+
+.memory-caption p {
+  margin: 8px 0 0;
+  font: 400 24px/1.2 var(--hand);
+  color: #987542;
+}
+
+/* Closing */
+
+.letter-closing {
+  padding-top: 5px;
+}
+
+.closing-label {
+  display: block;
+  font: italic 500 22px var(--serif);
+  color: #79562d;
+}
+
+.closing-message {
+  max-width: 550px;
+  margin: 16px 0 22px;
+  font: 500 clamp(25px, 4vw, 36px)/1.35 var(--hand);
+  color: #664726;
+}
+
+.closing-heart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #a37b39;
+}
+
+.closing-heart span {
+  width: 38px;
+  height: 1px;
+  background: #b9985c;
+}
+
+.letter-seal {
+  position: absolute;
+  right: 30px;
+  bottom: -23px;
+  display: grid;
+  width: 53px;
+  height: 53px;
+  place-items: center;
+  border: 3px double #e1bd77;
+  border-radius: 50%;
+  background: #77372e;
+  color: #f7dca0;
+  box-shadow: 0 4px 12px rgba(54, 29, 18, 0.25);
+}
+
+.letter-footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 35px;
+  font: 400 23px var(--hand);
+  text-align: center;
+  color: #ffe4a2;
+}
+
+.letter-footer-note svg {
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.apology-footer {
+  padding-top: 20px;
+  padding-bottom: calc(22px + env(safe-area-inset-bottom));
+}
+
+.apology-footer > span:nth-child(2) {
+  color: var(--gold);
+  font-size: 20px;
+}
+
+/* Tablet */
+
+@media (max-width: 700px) {
+  .apology-main {
+    padding: 30px 18px 45px;
+  }
+
+  .letter-heading {
+    margin-bottom: 27px;
+  }
+
+  .royal-letter {
+    padding: 35px 28px 42px;
+  }
+
+  .letter-memory {
+    gap: 20px;
+  }
+
+  .memory-frame {
+    width: 308px;
+    height: 337px;
+  }
+
+  .memory-caption > span {
+    font-size: 20px;
+  }
+}
+
+/* Phones */
+
+@media (max-width: 480px) {
+  .apology-header,
+  .apology-footer {
+    padding-inline: 17px;
+    gap: 10px;
+  }
+
+  .apology-header {
+    padding-top: calc(16px + env(safe-area-inset-top));
+  }
+
+  .apology-back {
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .apology-chapter {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
+  .apology-main {
+    padding: 26px 13px 38px;
+  }
+
+  .letter-eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.13em;
+  }
+
+  .letter-heading h1 {
+    font-size: clamp(43px, 12vw, 58px);
+  }
+
+  .letter-heading > p {
+    font-size: 22px;
+  }
+
+  .royal-letter {
+    padding: 31px 24px 39px;
+  }
+
+  .letter-inner-border {
+    inset: 8px;
+  }
+
+  .letter-top-ornament {
+    margin-bottom: 25px;
+  }
+
+  .letter-salutation {
+    margin-bottom: 20px;
+    font-size: 29px;
+  }
+
+  .letter-body {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .letter-body p {
+    margin-bottom: 19px;
+  }
+
+  .letter-sticker {
+    margin: 25px auto 29px;
+    padding: 13px 24px 16px;
+  }
+
+  .letter-sticker img {
+    width: 112px;
+  }
+
+  .sticker-caption {
+    font-size: 21px;
+  }
+
+  .letter-memory {
+    flex-direction: column;
+    gap: 18px;
+    margin: 32px 0;
+    padding: 27px 10px;
+    text-align: center;
+  }
+
+  .memory-frame {
+    width: 326px;
+    height: 353px;
+  }
+
+  .memory-caption {
+    text-align: center;
+  }
+
+  .memory-caption > span {
+    font-size: 22px;
+  }
+
+  .memory-caption p {
+    font-size: 23px;
+  }
+
+  .closing-label {
+    font-size: 20px;
+  }
+
+  .closing-message {
+    font-size: 29px;
+  }
+
+  .letter-seal {
+    right: 22px;
+    width: 47px;
+    height: 47px;
+  }
+
+  .letter-footer-note {
+    gap: 7px;
+    font-size: 20px;
+  }
+
+  .apology-footer {
+    font-size: 8px;
+    letter-spacing: 0.09em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .apology-back {
+    transition: none;
+  }
+}
+
+.letter-continue-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px auto 0;
+  padding: 13px 21px;
+  border: 1px solid #d7b777;
+  border-radius: 30px;
+  color: #1b3327;
+  background: linear-gradient(135deg, #f4dfad, #d9b879);
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.letter-continue-button:hover {
+  transform: translateY(-2px);
+}
+
+
+.landing-chapter {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  color: #f9e6ae;
+  white-space: nowrap;
+}

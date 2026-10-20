@@ -1,0 +1,675 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap");
+
+/* =====================================================
+   ENCHANTED FAIRYTALE LANDING
+   Desktop  : text column left, illustration right
+   ≤ 900px  : single column
+             1) heading + frog  2) illustration
+             3) description     4) button
+===================================================== */
+
+.landing,
+.landing *,
+.landing *::before,
+.landing *::after {
+  box-sizing: border-box;
+}
+
+.landing {
+  --gold: #f8d879;
+  --soft-gold: #ffe9a9;
+  --cream: #fff8df;
+  --green: #203e2c;
+
+  --pad-x: clamp(20px, 5vw, 72px);
+  --content-max: 1400px;
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Caveat", "Segoe Script", "Bradley Hand", cursive;
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  color: var(--cream);
+  background: var(--green);
+  -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
+/* ---------- Background ---------- */
+
+.landing-background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    linear-gradient(90deg,
+      rgba(18, 44, 30, 0.82) 0%,
+      rgba(32, 65, 40, 0.5) 50%,
+      rgba(34, 65, 39, 0.2) 100%),
+    linear-gradient(0deg, rgba(20, 44, 29, 0.6), transparent 40%),
+    url("../assets/main.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.landing-glow {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(65px);
+}
+
+.landing-glow-one {
+  top: 8%;
+  right: 4%;
+  width: 460px;
+  height: 460px;
+  max-width: 70vw;
+  max-height: 70vw;
+  background: radial-gradient(circle,
+      rgba(255, 218, 111, 0.36),
+      rgba(255, 217, 120, 0.08) 55%,
+      transparent 75%);
+}
+
+.landing-glow-two {
+  bottom: -90px;
+  left: -80px;
+  width: 340px;
+  height: 340px;
+  background: rgba(244, 204, 106, 0.17);
+}
+
+/* ---------- Fireflies ---------- */
+
+.fireflies {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.firefly {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: #fff5a7;
+  box-shadow:
+    0 0 7px 3px rgba(255, 231, 120, 0.8),
+    0 0 20px 6px rgba(255, 207, 75, 0.38),
+    0 0 38px 12px rgba(255, 213, 91, 0.13);
+  opacity: 0.75;
+}
+
+/* ---------- Floating doodles ---------- */
+
+.floating-doodle {
+  position: absolute;
+  z-index: 3;
+  font-family: var(--hand);
+  color: #ffe4a1;
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 0 18px rgba(255, 218, 116, 0.6);
+}
+
+.doodle-one   { top: 15%;    left: 52%;  font-size: 36px; }
+.doodle-two   { top: 12%;    right: 9%;  font-size: 34px; }
+.doodle-three { bottom: 20%; left: 49%;  font-size: 30px; }
+
+/* ---------- Shared container (header, main, footer line up) ---------- */
+
+.landing-header,
+.landing-main,
+.landing-footer {
+  width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--pad-x));
+  margin-inline: auto;
+}
+
+/* ---------- Header ---------- */
+
+.landing-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding:
+    calc(clamp(16px, 3vh, 28px) + env(safe-area-inset-top))
+    var(--pad-x)
+    clamp(8px, 1.6vh, 16px);
+}
+
+.landing-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--serif);
+  font-size: clamp(25px, 2.2vw, 31px);
+  font-weight: 500;
+  line-height: 1;
+  color: #fff1bd;
+  text-decoration: none;
+}
+
+.logo-star {
+  color: var(--gold);
+  font-size: 1em;
+}
+
+.landing-chapter {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1;
+  color: #f9e6ae;
+  white-space: nowrap;
+}
+
+/* ---------- Main (desktop) ---------- */
+
+.landing-main {
+  position: relative;
+  z-index: 4;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  column-gap: clamp(24px, 4vw, 72px);
+  align-items: center;
+  padding:
+    clamp(8px, 2vh, 24px)
+    var(--pad-x)
+    clamp(16px, 3vh, 36px);
+}
+
+.landing-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  max-width: 660px;
+}
+
+/* ---------- Heading + frog ---------- */
+
+.landing-intro {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) auto;
+  justify-content: start;
+  align-items: center;
+  column-gap: clamp(16px, 2.4vw, 40px);
+  min-width: 0;
+}
+
+.landing-copy {
+  min-width: 0;
+}
+
+.landing-kicker {
+  text-wrap: balance;
+  margin: 0 0 clamp(14px, 2.4vh, 24px);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+  text-transform: uppercase;
+  color: #fbe3a0;
+}
+
+.landing-copy h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(54px, min(6.4vw, 10vh), 112px);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #fff9e8;
+  text-shadow: 0 3px 24px rgba(20, 35, 21, 0.4);
+}
+
+.landing-copy h1 em {
+  font-style: italic;
+  font-weight: 500;
+  color: #ffdc7d;
+  text-shadow: 0 0 30px rgba(255, 216, 108, 0.22);
+}
+
+.landing-period {
+  color: #f7d777;
+}
+
+.frog-sticker {
+  display: block;
+  justify-self: center;
+  width: clamp(64px, 7.5vw, 116px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+}
+
+/* ---------- Heart divider ---------- */
+
+.landing-heart-icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  margin-top: clamp(16px, 2.6vh, 26px);
+  color: #f7d780;
+}
+
+.heart-line {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f5d77d);
+}
+
+.heart-line:last-child {
+  transform: rotate(180deg);
+}
+
+/* ---------- Description ---------- */
+
+.landing-description {
+  max-width: 31em;
+  margin-top: clamp(16px, 3vh, 30px);
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.65vw, 25px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 248, 223, 0.94);
+  text-shadow: 0 2px 14px rgba(15, 30, 20, 0.45);
+}
+
+.landing-description p {
+  margin: 0 0 0.3em;
+  text-wrap: pretty;
+}
+
+.landing-recipient {
+  font-style: italic;
+  font-weight: 600;
+  color: #ffe18b;
+}
+
+/* ---------- Button + handwritten ---------- */
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  margin-top: clamp(20px, 3.4vh, 36px);
+}
+
+.landing-enter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 14px 28px;
+  border: 1px solid #ffebae;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fff0b5, #f5cd70);
+  color: #29432b;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow:
+    0 5px 24px rgba(255, 212, 111, 0.3),
+    inset 0 1px 4px rgba(255, 255, 255, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.landing-enter:hover {
+  background: #fff3c7;
+  box-shadow: 0 8px 35px rgba(255, 217, 117, 0.5);
+}
+
+.landing-enter:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+.landing-handwritten {
+  font-family: var(--hand);
+  font-size: clamp(26px, 2.1vw, 32px);
+  line-height: 1;
+  color: #ffe4a2;
+  transform: rotate(-4deg);
+}
+
+/* ---------- Illustration ---------- */
+
+.landing-art {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  height: clamp(420px, 72vh, 780px);
+}
+
+.sticker-halo,
+.art-magic-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.sticker-halo {
+  z-index: 0;
+  width: min(100%, 640px);
+  background: radial-gradient(circle,
+      rgba(255, 234, 152, 0.52) 0%,
+      rgba(255, 211, 103, 0.23) 40%,
+      rgba(255, 221, 125, 0.06) 65%,
+      transparent 76%);
+  filter: blur(12px);
+}
+
+.art-magic-circle {
+  z-index: 0;
+  width: min(80%, 460px);
+  border: 1px solid rgba(255, 233, 166, 0.2);
+  box-shadow:
+    0 0 45px rgba(255, 221, 133, 0.15),
+    inset 0 0 40px rgba(255, 221, 133, 0.1);
+}
+
+.girl-sticker {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  margin-top: 60px;
+  margin-right: 40px;
+  object-position: center;
+  filter:
+    drop-shadow(0 20px 25px rgba(0, 0, 0, 0.3))
+    drop-shadow(0 0 20px rgba(255, 218, 126, 0.24));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.art-sparkle {
+  position: absolute;
+  z-index: 4;
+  color: #ffe59c;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px #ffd76f);
+}
+
+.art-sparkle-one   { top: 10%;    right: 8%; }
+.art-sparkle-two   { bottom: 28%; left: 6%;  }
+.art-sparkle-three { top: 24%;    left: 10%; }
+
+.art-note {
+  position: absolute;
+  z-index: 5;
+  right: 0;
+  bottom: 6%;
+  max-width: 250px;
+  font-family: var(--hand);
+  font-size: clamp(24px, 2.1vw, 32px);
+  line-height: 1.1;
+  text-align: center;
+  color: #ffe9ac;
+  transform: rotate(-7deg);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- Footer ---------- */
+
+.landing-footer {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding:
+    clamp(10px, 2vh, 18px)
+    var(--pad-x)
+    calc(clamp(14px, 2.6vh, 26px) + env(safe-area-inset-bottom));
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #f8e4ad;
+}
+
+.footer-star {
+  font-size: 22px;
+  color: #ffdc84;
+}
+
+/* =====================================================
+   TABLET + PHONE  (single column)
+===================================================== */
+
+@media (max-width: 900px) {
+  .landing-background {
+    background-image:
+      linear-gradient(180deg,
+        rgba(18, 44, 30, 0.74) 0%,
+        rgba(26, 54, 36, 0.46) 45%,
+        rgba(18, 44, 30, 0.82) 100%),
+      url("../assets/main.jpg");
+  }
+
+  .landing-main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-top: 8px;
+    padding-bottom: 28px;
+  }
+
+  /* children of .landing-text join the main flex flow */
+  .landing-text {
+    display: contents;
+  }
+
+  .landing-header,
+  .landing-main,
+  .landing-footer {
+    max-width: calc(640px + 2 * var(--pad-x));
+  }
+
+  .landing-intro {
+    grid-template-columns: minmax(0, 1fr) auto;
+    justify-content: stretch;
+    column-gap: 8px;
+  }
+
+  .landing-intro       { order: 1; }
+  .landing-art         { order: 2; }
+  .landing-description { order: 3; }
+  .landing-actions     { order: 4; }
+
+  .landing-copy h1 {
+    font-size: clamp(50px, 12.5vw, 84px);
+  }
+
+  .frog-sticker {
+    width: clamp(66px, 17vw, 112px);
+  }
+
+  .landing-art {
+    height: clamp(340px, 56dvh, 560px);
+    margin: 10px 0 6px;
+  }
+
+  .landing-description {
+    max-width: 30em;
+    margin-top: 14px;
+    font-size: clamp(20px, 3.2vw, 24px);
+  }
+
+  .landing-actions {
+    margin-top: 24px;
+  }
+
+  .doodle-one   { top: 13%; left: 6%;   right: auto; }
+  .doodle-two   { top: 11%; right: 6%; }
+  .doodle-three { display: none; }
+
+  .art-note {
+    right: 2%;
+    bottom: 4%;
+  }
+}
+
+/* =====================================================
+   PHONES
+===================================================== */
+
+@media (max-width: 600px) {
+  .landing-header {
+    padding-top: calc(14px + env(safe-area-inset-top));
+  }
+
+  .landing-logo     { font-size: 25px; }
+  .landing-chapter  { font-size: 10px; letter-spacing: 0.16em; }
+
+  .landing-main {
+    padding-top: 6px;
+    padding-bottom: 24px;
+  }
+
+  .landing-kicker {
+    margin-bottom: 14px;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    line-height: 1.7;
+  }
+
+  .landing-copy h1 {
+    font-size: clamp(46px, 13.6vw, 66px);
+    line-height: 0.93;
+  }
+
+  .landing-heart-icon {
+    margin-top: 16px;
+    gap: 9px;
+  }
+
+  .heart-line { width: 28px; }
+
+  .landing-art {
+    height: clamp(300px, 50dvh, 440px);
+    margin: 8px 0 2px;
+  }
+
+  .doodle-one { display: none; }
+
+  .girl-sticker {
+    height: 96%;
+    margin-right: 2%;
+    margin-bottom: 20%;
+  }
+
+  .sticker-halo,
+  .art-magic-circle {
+    left: 45.5%;
+    margin-bottom: 70px;
+  }
+
+  .art-note {
+    right: 0;
+    bottom: 52%;
+    max-width: 118px;
+    font-size: 22px;
+  }
+
+  .art-sparkle-one   { right: 4%; }
+  .art-sparkle-two   { left: 2%; }
+  .art-sparkle-three { left: 4%; }
+
+  .landing-description {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  .landing-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .landing-enter {
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+
+  .landing-handwritten {
+    align-self: center;
+    font-size: 27px;
+  }
+
+  .landing-footer {
+    padding-inline: 20px;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .landing-copy h1  { font-size: 44px; }
+  .landing-kicker   { font-size: 9.5px; letter-spacing: 0.1em; }
+  .landing-description { font-size: 18.5px; }
+  .art-note         { max-width: 104px; font-size: 20px; }
+}
+
+/* Short landscape phones / small laptops */
+@media (min-width: 901px) and (max-height: 720px) {
+  .landing-art { height: clamp(340px, 68vh, 520px); }
+  .landing-description { font-size: clamp(18px, 1.5vw, 22px); }
+}
+
+/* ---------- Accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-enter {
+    transition: none;
+  }
+
+  .firefly {
+    box-shadow: 0 0 9px rgba(255, 231, 120, 0.6);
+  }
+}
